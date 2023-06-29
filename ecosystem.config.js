@@ -12,7 +12,7 @@ module.exports = {
       key  : './kkb-key.key',
       user : 'ubuntu',
       host : '195.15.195.132',
-      ref  : 'origin/dev',
+      ref  : 'origin/main',
       repo : 'https://github.com/JaimeDan12/Nodejs-trainig.git',
       path : '/home/ubuntu',
       'pre-deploy-local': '',
