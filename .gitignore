@@ -1,3 +1,4 @@
 *.key
 ./kkb-key.key
 *.txt
+node_modules/
