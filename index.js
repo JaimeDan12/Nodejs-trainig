@@ -1,21 +1,27 @@
 const http = require('http')
-
+const bodyPrser = require('body-parser')
 const express = require('express')
+const fs = require('fs');
 
 const app = express();
 
-app.use('/add-product', (req, res, next) => {
-    console.log("In the another Middleware!");
-    res.send('<h1>Product page</h1>')
+app.use(bodyPrser.urlencoded({
+    extended: true,
+}));
+
+app.get('/add-product', (req, res, next) => {
+    res.send('<h1>Products page</h1><form action="/product " method="POST"><input type=text name ="tittle"><button type=submit>Add product</button></form>')
 })
 
-app.use('/add-post', (req, res, next) => {
-    console.log("In the another Middleware!");
-    res.send('<h1>Posts page</h1>')
+app.use('/product', (req, res, next) =>{
+    console.log(req.body);
+    res.redirect('/');
+    // const content = req.body;
+    // fs.writeFile('Content.txt', content, err =>{})
+
 })
 
 app.use('/', (req, res, next) => {
-    console.log("In the another Middleware!");
     res.send('<h1>Hello welcome to express server</h1>')
 })
 
