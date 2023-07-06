@@ -4,12 +4,17 @@ const express = require('express')
 
 const app = express();
 
-app.use((req, res, next) => {
-    console.log("In the Middleware!");
-    next(); // permet à la requete d'atteindre le middlware suivant
+app.use('/add-product', (req, res, next) => {
+    console.log("In the another Middleware!");
+    res.send('<h1>Product page</h1>')
 })
 
-app.use((req, res, next) => {
+app.use('/add-post', (req, res, next) => {
+    console.log("In the another Middleware!");
+    res.send('<h1>Posts page</h1>')
+})
+
+app.use('/', (req, res, next) => {
     console.log("In the another Middleware!");
     res.send('<h1>Hello welcome to express server</h1>')
 })
