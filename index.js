@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const rootDir = require('./util/path')
 
-const adminRoutes = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 const app = express();
@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:true,}));
 app.use(express.static(path.join(__dirname, 'public'))); 
 
-app.use('/admin', adminRoutes); //pas besoin de l'appeler avec () comme une fonction
+app.use('/admin', adminData.routes); //pas besoin de l'appeler avec () comme une fonction
 app.use(shopRoutes);
 
 app.use((req, res, next) =>{
